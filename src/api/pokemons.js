@@ -10,13 +10,22 @@ const getAllPokemons = async (offset, limit) => {
     return {
       id: data.id,
       name: data.name,
-      image: data.sprites.other.home.front_default,
+      exp: data.base_experience,
+      type: data.types[0].type.name,
+      image: data.sprites.other.home.front_default
     }
   })
 
   return await Promise.all(getAllPokemonPromises)
 }
 
+const getPokemonById = async (id) => {
+  const response = await fetch(`${baseURL}pokemon/${id}/`)
+  const data = await response.json()
+  return data
+}
+
 export {
   getAllPokemons,
+  getPokemonById,
 }
