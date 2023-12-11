@@ -1,12 +1,15 @@
 import { ButtonsGroup, Nav, PokemonCards, Spinner } from './components'
 import { usePagination, usePokemons } from './hooks'
 import './App.css'
+// import { usePokemonsTypes } from './hooks/usePokemons'
+// import { usePokemonsTypes } from './hooks/usePokemons'
 
 export default function App() {
   const limitOfItemsForPagination = 24
   const { handleNextButton, handlePrevButton, handleResetButton, offset } = usePagination(limitOfItemsForPagination)
   const { pokemons, loading } = usePokemons(offset, limitOfItemsForPagination)
-
+  // const { types } = usePokemonsTypes()
+  // console.log(types)
   return (
     <>
       <Nav />
@@ -18,21 +21,19 @@ export default function App() {
             reset={handleResetButton}
           />
           <div className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8'>
-            {
-              loading ? (
-                <Spinner />
-              ) : (
-                pokemons.map(({ id, name, image, type }) => (
-                  <PokemonCards
-                    key={id}
-                    id={id}
-                    name={name}
-                    image={image}
-                    type={type}
-                  />
-                ))
-              )
-            }
+            {loading ? (
+              <Spinner />
+            ) : (
+              pokemons.map(({ id, name, image, type }) => (
+                <PokemonCards
+                  key={id}
+                  id={id}
+                  name={name}
+                  image={image}
+                  type={type}
+                />
+              ))
+            )}
           </div>
           <ButtonsGroup
             next={handleNextButton}
