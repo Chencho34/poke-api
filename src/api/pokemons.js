@@ -19,6 +19,53 @@ const getAllPokemons = async (offset, limit) => {
   return await Promise.all(getAllPokemonPromises)
 }
 
+const getPokemonsTypes = async (pokemons) => {
+  const types = {}
+
+  pokemons.forEach(pokemon => {
+    const type = pokemon.type
+
+    if (!types[type]) {
+      types[type] = []
+    }
+
+    types[type].push(pokemon)
+  })
+  return types
+}
+// const getPokemonsByType = async (pokemons, type) => {
+//   const types = {}
+
+//   pokemons.forEach(pokemon => {
+//     const type = pokemon.type
+
+//     if (!types[type]) {
+//       types[type] = []
+//     }
+
+//     types[type].push(pokemon)
+//   })
+//   return types
+// }
+
+// const getPokemonsByType = async (pokemons, typeToShow) => {
+//   const types = {}
+
+//   pokemons.forEach(pokemon => {
+//     const type = pokemon.type
+
+//     if (!types[type]) {
+//       types[type] = []
+//     }
+
+//     if (type === typeToShow) {
+//       types[type].push(pokemon)
+//     }
+//   })
+
+//   return types
+// }
+
 const getPokemonById = async (id) => {
   const response = await fetch(`${baseURL}pokemon/${id}/`)
   const data = await response.json()
@@ -28,4 +75,5 @@ const getPokemonById = async (id) => {
 export {
   getAllPokemons,
   getPokemonById,
+  getPokemonsTypes
 }
