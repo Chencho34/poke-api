@@ -19,8 +19,7 @@ export default function App() {
   return (
     <>
       <Nav />
-      
-      <div className=' bg-red-600  '>
+      <div>
         <input type='text'
           name='name'
           placeholder='serach pokemon'
