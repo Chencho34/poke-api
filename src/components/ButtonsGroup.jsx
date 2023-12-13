@@ -1,21 +1,21 @@
 // eslint-disable-next-line react/prop-types
 export default function ButtonsGroup({next, prev, reset}) {
   return (
-    <div className='items-center p-6 flex justify-between'>
+    <div className='flex items-center p-6 justify-evenly'>
       <button
-        className='inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2'
+        className='h-10 px-4 py-2 rounded-md text-white text-sm font-medium transition-colors duration-500 bg-gray-900 hover:bg-gray-700 hover:text-white'
         onClick={prev}
       >
         Previous
       </button>
       <button
-        className='inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2'
+        className='h-10 px-4 py-2 rounded-md text-white text-sm font-medium transition-colors duration-500 bg-gray-900 hover:bg-gray-700 hover:text-white'
         onClick={reset}
       >
         Reset
       </button>
       <button
-        className='inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2'
+        className='h-10 px-4 py-2 rounded-md text-white text-sm font-medium transition-colors duration-500 bg-gray-900 hover:bg-gray-700 hover:text-white'
         onClick={next}
       >
         Next

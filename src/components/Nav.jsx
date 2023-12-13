@@ -1,45 +1,60 @@
+import { useState } from 'react'
+
 export default function Nav() {
   return (
-    <nav className='bg-gray-800'>
-      <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-        <div className='flex h-16 items-center justify-between'>
-          <div className='flex flex-1 items-center justify-between sm:items-stretch'>
-            <div className='flex items-center gap-4 flex-row space-y-1.5 '>
-              <h3 className='text-2xl font-semibold leading-none tracking-tight text-white'>Pokedex</h3>
-              <p className='text-sm text-muted-foreground text-white'>Encyclopedia of Pokemon</p>
-            </div>
-            <div className='hidden sm:ml-6 sm:block'>
-              <div className='flex items-center space-x-4'>
-                <button
-                  href='#'
-                  className='bg-gray-900 text-white rounded-md px-4 py-2 flex items-center text-sm hover:bg-gray-700 hover:text-white h-full font-medium'
-                >
-                  All Pokemons
-                </button>
-                <FormPokemon />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <nav className='bg-gradient-to-r from-gray-800  to-[rgba(32,34,32,0.62)] w-screen h-16'>
+      <section className='flex items-center justify-between w-11/12 h-full mx-auto'>
+        <article className='flex flex-row items-center gap-4 space-y-1.5'>
+          <h3 className='text-2xl text-white font-semibold leading-none tracking-tight'>Pokedex</h3>
+          <p className='hidden sm:block text-sm text-white'>Encyclopedia of Pokemon</p>
+        </article>
+        <article className='hidden sm:flex items-center gap-4 bg-gray-900 rounded-lg px-1 pr-0'>
+          <NavItems /> 
+          <NavInput />
+        </article>
+        <NavMenu />
+      </section>
     </nav>
   )
 }
 
-
-function FormPokemon () {
+function NavMenu () {
   return (
-    <div className='rounded-lg  bg-card text-card-foreground shadow-sm max-w-md mx-auto'>
-      <form className='flex justify-center gap-2 p-1'>
-        <input
-          className='flex h-full w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 '
-          id='pokemon-name'
-          placeholder='Enter Pokémon name'
-        />
-        <button className='inline-flex h-full items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground  text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2'>
-          Search
-        </button>
-      </form>
-    </div>
+    <p className='sm:hidden'>Burger</p>
+  )
+}
+
+function NavItems () {
+  const [isClicked, setIsClicked] = useState(0)
+  const handleClick = (index) => setIsClicked(index)
+  const paths = [{ to: '', item: 'All pokemons' }, { to: '', item: 'Types' }]
+
+  return (
+    <ul className='hidden lg:flex flex-row gap-2'>
+      {paths.map(({item}, index) => (
+        <li 
+          key={index} 
+          onClick={() => handleClick(index)} 
+          className={`${isClicked === index ? 'bg-gray-700 text-white' : ''} rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 transition-colors duration-500` }
+        >
+          <a href='#'>{item}</a>
+        </li>     
+      ))}    
+    </ul>
+  )
+}
+
+function NavInput () {
+  return (
+    <form className='flex items-center justify-center gap-2 p-1 rounded-lg max-w-md mx-auto'>
+      <input
+        className='flex h-full w-full rounded-md bg-gray-800 px-3 py-2 text-sm file:border-0 file:bg-transparent file:font-medium outline-none text-gray-300 font-medium '
+        id='pokemon-name'
+        placeholder='Pokémon name'
+      />
+      <button className='inline-flex h-full items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground  text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 transition-colors duration-500'>
+        Search
+      </button>
+    </form>
   )
 }
