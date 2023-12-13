@@ -48,9 +48,10 @@ function NavInput () {
   return (
     <form className='flex items-center justify-center gap-2 p-1 rounded-lg max-w-md mx-auto'>
       <input
-        className='flex h-full w-full rounded-md bg-gray-800 px-3 py-2 text-sm file:border-0 file:bg-transparent file:font-medium outline-none text-gray-300 font-medium '
         id='pokemon-name'
+        maxLength={20}
         placeholder='Pokémon name'
+        className='flex h-full w-full rounded-md bg-gray-800 px-3 py-2 text-sm file:border-0 file:bg-transparent file:font-medium outline-none text-gray-300 font-medium '
       />
       <button className='inline-flex h-full items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground  text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 transition-colors duration-500'>
         Search
