@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAllPokemons, getAllPokemonsTypes, getPokemonsTypes } from '../api/pokemons'
+import { getAllPokemons, getAllPokemonsTypes, getPokemonsTypes } from '../services/api/pokemons'
 
 const usePokemons = (offset, limitOfItemForPagination) => {
   const [pokemons, setPokemons] = useState([])

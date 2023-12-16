@@ -1,6 +1,6 @@
 import ButtonsGroup from './ButtonsGroup'
-import Nav from './Nav'
-import PokemonCards from './PokemonCards'
+import Nav from './navBar/Nav'
+import PokemonCards from './Card/Card'
 import Spinner from './Spinner'
 
 export {
