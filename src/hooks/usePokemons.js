@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAllPokemons } from '../services/api/pokemons'
+import { getAllPokemons, getPokemonsByTypes } from '../services/api/pokemons'
 
 const usePokemons = (offset, limitOfItemForPagination) => {
   const [pokemons, setPokemons] = useState([])
@@ -17,22 +17,23 @@ const usePokemons = (offset, limitOfItemForPagination) => {
   return { pokemons, loading }
 }
 
-// const usePokemonsTypes = () => {
-//   const [pokemons, setPokemons] = useState([])
-//   const [types, setTypes] = useState()
+const usePokemonsTypes = (type) => {
+  const [types, setTypes] = useState([])
+  const [loading, setLoading] = useState(true)
 
-//   useEffect(() => {
-//     getAllPokemonsTypes()
-//       .then((allpokemons) => setPokemons(allpokemons))
+  useEffect(() => {
+    getPokemonsByTypes(type)
+      .then((types) => {
+        setTypes(types)
+        setLoading(false)
+      })
+      .catch((error) => console.log('msg', error))
+  }, [])
 
-//     getPokemonsTypes(pokemons)
-//       .then((types) => setTypes(types))
-//   }, [])
-
-//   return { pokemons, types }
-// }
+  return { types, loading }
+}
 
 export {
   usePokemons,
-  // usePokemonsTypes
+  usePokemonsTypes
 }

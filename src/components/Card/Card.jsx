@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
-export default function Card({ name, image, type, onClick}) {
+export default function Card({ name, image, type, onClick, out, over}) {
   return (
-    <section onClick={onClick} className='flex flex-row items-center justify-around space-y-4 p-6 rounded border shadow-sm hover:shadow-md'>
+    <section onMouseOut={out} onMouseOver={over} onClick={onClick} className='flex flex-row items-center justify-around space-y-4 p-6 rounded border shadow-sm hover:shadow-md'>
       <article className='h-20 w-20 shrink-0 overflow-hidden rounded-full'>
         <figure className='flex items-center justify-center h-full w-full rounded-full'>
           <img src={image} alt='image'/>

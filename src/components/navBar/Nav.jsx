@@ -124,7 +124,7 @@ function NavMobileMenu() {
 }
 
 function NavSearchDesktop () {
-  const { pokemons } = usePokemons(1,500)
+  const { pokemons } = usePokemons(0,10)
   const [inputSearch, setInputSearch] = useState([])
   const [isInputFocused, setIsInputFocused] = useState(false)
   const filterPokemons =  (name) => pokemons.filter((pokemon) => pokemon.name.includes(name.toLowerCase()))
@@ -142,9 +142,7 @@ function NavSearchDesktop () {
     setIsInputFocused(false)
     setInputSearch([]) // Limpiar la búsqueda cuando se pierde el foco
   }
-
-
-
+  
   return (
     <>
     <form className='hidden sm:flex items-center rounded-lg scale-up-center'>
