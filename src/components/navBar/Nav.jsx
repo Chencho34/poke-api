@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { RiMenu3Line, RiCloseLine, RiSearchLine } from 'react-icons/ri'
 import { MdOutlineLightMode, MdOutlineNightlight } from 'react-icons/md'
 import { paths } from '../../constants'
+import { usePokemons } from '../../hooks'
+import Card from '../Card/Card'
   
 export default function Nav () {
   return (
@@ -122,21 +124,60 @@ function NavMobileMenu() {
 }
 
 function NavSearchDesktop () {
+  const { pokemons } = usePokemons(1,500)
+  const [inputSearch, setInputSearch] = useState([])
+  const [isInputFocused, setIsInputFocused] = useState(false)
+  const filterPokemons =  (name) => pokemons.filter((pokemon) => pokemon.name.includes(name.toLowerCase()))
+  const handleInputSearch = (e) => {
+    const { value } = e.target
+    const filteredPokemons = filterPokemons(value)    
+    setInputSearch(value ? filteredPokemons : [])
+  }
+
+  const handleFocus = () => {
+    setIsInputFocused(true)
+  }
+
+  const handleBlur = () => {
+    setIsInputFocused(false)
+    setInputSearch([]) // Limpiar la búsqueda cuando se pierde el foco
+  }
+
+
+
   return (
+    <>
     <form className='hidden sm:flex items-center rounded-lg scale-up-center'>
       <label htmlFor='pokemonName' className='flex flex-row items-center justify-center gap-1 p-1'>
         <input
-          type='text'
+          type='text' 
+          onChange={handleInputSearch}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           name='pokemonName'
           id='pokemonName'
+          autoComplete='off'
           maxLength={20}
           placeholder='Pokémon name'
           className='flex h-full w-full rounded-md bg-gray-800 px-3 py-2 text-sm file:border-0 file:bg-transparent file:font-medium outline-none text-gray-300 font-medium'
-        />
+        />  
         <span className='px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md transition-colors duration-500'>
           <RiSearchLine size={20} />
         </span>
       </label>
     </form>
+    {isInputFocused && inputSearch.length > 0 && (
+        <div className='fixed grid-cols-1 grid place-content-start place-items-center justify-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  grid-rows-none gap-5 top-16 right-0 w-full mx-auto bg-gradient-to-r from-gray-900 to-gray-700/80 bg-transparent backdrop-blur-lg text-white p-7 h-screen overflow-hidden overflow-y-auto'>
+          {inputSearch.map(({ id, name, image }) => (
+            <Card 
+              key={id}
+              image={image}
+              name={name}
+              id={id}
+            />
+          ))}
+        </div>
+      )}  
+    </>
   )
 }

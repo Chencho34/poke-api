@@ -19,19 +19,18 @@ const getAllPokemons = async (offset, limit) => {
   return await Promise.all(getAllPokemonPromises)
 }
 
-const getAllPokemonsTypes = async () => {
-  const limit = 10586
-  const response = await fetch(`${baseURL}pokemon?limit=${limit}`)
+const getPokemonsByTypes = async (type) => {
+  const response = await fetch(`${baseURL}type/${type}/`)
   const data = await response.json()
 
-  const getAllPokemonPromises = data.results.map(async (pokemon) => {
+  const getAllPokemonPromises = data.pokemon.map(async ({ pokemon }) => {
     const response = await fetch(pokemon.url)
     const data = await response.json()
     return {
       id: data.id,
       name: data.name,
       exp: data.base_experience,
-      type: data.types[0].type.name,
+      type: data.types[0],
       image: data.sprites.other.home.front_default
     }
   })
@@ -39,52 +38,6 @@ const getAllPokemonsTypes = async () => {
   return await Promise.all(getAllPokemonPromises)
 }
 
-const getPokemonsTypes = async (pokemons) => {
-  const types = {}
-
-  pokemons.forEach(pokemon => {
-    const type = pokemon.type
-
-    if (!types[type]) {
-      types[type] = []
-    }
-
-    types[type].push(pokemon)
-  })
-  return types
-}
-// const getPokemonsByType = async (pokemons, type) => {
-//   const types = {}
-
-//   pokemons.forEach(pokemon => {
-//     const type = pokemon.type
-
-//     if (!types[type]) {
-//       types[type] = []
-//     }
-
-//     types[type].push(pokemon)
-//   })
-//   return types
-// }
-
-// const getPokemonsByType = async (pokemons, typeToShow) => {
-//   const types = {}
-
-//   pokemons.forEach(pokemon => {
-//     const type = pokemon.type
-
-//     if (!types[type]) {
-//       types[type] = []
-//     }
-
-//     if (type === typeToShow) {
-//       types[type].push(pokemon)
-//     }
-//   })
-
-//   return types
-// }
 const getPokemonByName = async (name) => {
   const response = await fetch(`${baseURL}pokemon/${name}/`)
   const data = await response.json()
@@ -99,8 +52,7 @@ const getPokemonById = async (id) => {
 
 export {
   getAllPokemons,
-  getPokemonById,
-  getPokemonsTypes,
+  getPokemonsByTypes,
   getPokemonByName,
-  getAllPokemonsTypes
+  getPokemonById,
 }
