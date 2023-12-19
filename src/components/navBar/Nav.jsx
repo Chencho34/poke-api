@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
   
 export default function Nav () {
   return (
-    <nav className='w-full h-16 bg-gray-800 bg-gradient-to-r from-gray-900 to-gray-700/80 bg-transparent fixed backdrop-blur-sm'>
+    <nav className='w-full h-16 bg-gray-800 bg-gradient-to-r from-gray-900 to-gray-700/80 bg-transparent fixed backdrop-blur-sm z-50'>
       <section className='flex items-center justify-between flex-1 w-11/12 h-full mx-auto max-w-7xl'>
         <article className='flex flex-row items-center gap-4 space-y-1.5'>
           <h3 className='text-2xl text-white font-semibold leading-none tracking-tight flex items-center'>Pokedex </h3>

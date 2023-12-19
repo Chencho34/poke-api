@@ -22,7 +22,7 @@ export default function Pokemon() {
           <p>exp: {pokemon.exp}</p>
           <div className='flex flex-row gap-10'>
             {pokemon.type?.map(({ type }) => (
-              <p key={type.name} className='text-red-800'>
+              <p key={type.name} className={`${type.name}`}>
                 {type.name}
               </p>
             ))}
