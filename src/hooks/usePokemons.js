@@ -35,17 +35,19 @@ const usePokemonsTypes = (type) => {
 
 const usePokemon = (id) => {
   const [pokemon, setPokemon] = useState({})
+  const [loading, setLoading] = useState(true)
   const formatId = Number(id.split(':').pop())
 
   useEffect(() => {
     getPokemonById(formatId)
       .then((pokemon) => {
         setPokemon(pokemon)
+        setLoading(false)
       })
       .catch((error) => console.log('mdg', error))
   }, [])
 
-  return { pokemon }
+  return { pokemon, loading }
 }
 
 export {
