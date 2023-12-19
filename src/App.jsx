@@ -4,13 +4,12 @@ import { Nav } from './components'
 import './App.css'
 
 export default function App() {
- 
   return (
     <>
       <Nav />
       <Routes>
-        <Route path='/' index element={<Pokedex />} />
-        <Route path='/pokemon:id' index element={<Pokemon />} />
+        <Route path='/pokemon' index element={<Pokedex />} />
+        <Route path=':id' element={<Pokemon />} />
       </Routes>
     </>
   )

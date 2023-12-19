@@ -4,6 +4,7 @@ import { MdOutlineLightMode, MdOutlineNightlight } from 'react-icons/md'
 import { paths } from '../../constants'
 import { usePokemons } from '../../hooks'
 import Card from '../Card/Card'
+import { Link } from 'react-router-dom'
   
 export default function Nav () {
   return (
@@ -35,16 +36,16 @@ function NavItemsDesktop () {
   return (
     <ul className='hidden lg:flex flex-row gap-2 scale-up-center'>
       {
-        paths.map(({ item }, index) => (
+        paths.map(({ item,to }, index) => (
           <li key={index} onClick={() => handleClick(index)}>
-            <a
-              href='#'
+            <Link
+              to={to}
               className={`${
                 isClicked === index ? 'bg-gray-700 text-white' : ''
               } rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 transition-colors duration-500`}
             >
               {item}
-            </a>
+            </Link>
           </li>
         ))
       }
@@ -84,7 +85,7 @@ function NavMobileMenu() {
         <section className='flex flex-col items-center gap-2 bg-gradient-to-r from-gray-900 to-gray-700/80 backdrop-blur-sm rounded-lg sm:px-10 px-5 py-1 rounded-t-none w-full scale-up-ver-top absolute top-full left-0'>
           <ul className='lg:hidden flex flex-col gap-4 items-start w-full py-2'>
             <li className='text-sm font-medium text-gray-300 hover:text-cyan-300 transition-colors duration-500'>
-              <a href='#'>All pokemons</a>
+              <Link to='/pokemon'>All pokemons</Link>
             </li>
             <li className='text-sm font-medium text-gray-300 hover:text-cyan-300 transition-colors duration-500'>
               <a href='#'>Type</a>
@@ -124,7 +125,7 @@ function NavMobileMenu() {
 }
 
 function NavSearchDesktop () {
-  const { pokemons } = usePokemons(0,10)
+  const { pokemons } = usePokemons(0,500)
   const [inputSearch, setInputSearch] = useState([])
   const [isInputFocused, setIsInputFocused] = useState(false)
   const filterPokemons =  (name) => pokemons.filter((pokemon) => pokemon.name.includes(name.toLowerCase()))
@@ -142,7 +143,8 @@ function NavSearchDesktop () {
     setIsInputFocused(false)
     setInputSearch([]) // Limpiar la búsqueda cuando se pierde el foco
   }
-  
+
+
   return (
     <>
     <form className='hidden sm:flex items-center rounded-lg scale-up-center'>
@@ -172,6 +174,7 @@ function NavSearchDesktop () {
               image={image}
               name={name}
               id={id}
+              to={id}
             />
           ))}
         </div>

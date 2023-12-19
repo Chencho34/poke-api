@@ -1,5 +1,5 @@
 const paths = [
-  { to: '/', item: 'All pokemons' },
+  { to: '/pokemon', item: 'All pokemons' },
   { to: '/pokedex', item: 'Pokedex' },
 ]
 

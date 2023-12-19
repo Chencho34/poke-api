@@ -47,7 +47,16 @@ const getPokemonByName = async (name) => {
 const getPokemonById = async (id) => {
   const response = await fetch(`${baseURL}pokemon/${id}/`)
   const data = await response.json()
-  return data
+
+  return {
+    id: data.id,
+    name: data.name,
+    exp: data.base_experience,
+    image: data.sprites.other.home.front_default,
+    type: data.types,
+    height: data.height,
+    weight: data.weight,
+  }
 }
 
 export {

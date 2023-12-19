@@ -1,10 +1,9 @@
 import { usePagination } from './usePagination'
-import { usePokemons } from './usePokemons'
-import { usePokemonsTypes } from './usePokemons'
+import { usePokemons, usePokemon, usePokemonsTypes } from './usePokemons'
 
 export {
   usePagination,
   usePokemonsTypes,
   usePokemons,
-
+  usePokemon
 }

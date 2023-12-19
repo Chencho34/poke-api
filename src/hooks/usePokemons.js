@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAllPokemons, getPokemonsByTypes } from '../services/api/pokemons'
+import { getAllPokemons, getPokemonById, getPokemonsByTypes } from '../services/api/pokemons'
 
 const usePokemons = (offset, limitOfItemForPagination) => {
   const [pokemons, setPokemons] = useState([])
@@ -33,7 +33,23 @@ const usePokemonsTypes = (type) => {
   return { types, loading }
 }
 
+const usePokemon = (id) => {
+  const [pokemon, setPokemon] = useState({})
+  const formatId = Number(id.split(':').pop())
+
+  useEffect(() => {
+    getPokemonById(formatId)
+      .then((pokemon) => {
+        setPokemon(pokemon)
+      })
+      .catch((error) => console.log('mdg', error))
+  }, [])
+
+  return { pokemon }
+}
+
 export {
   usePokemons,
-  usePokemonsTypes
+  usePokemonsTypes,
+  usePokemon
 }

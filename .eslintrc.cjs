@@ -18,6 +18,7 @@ module.exports = {
     "semi": ["error", "never"],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-
+    'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off'
   },
 }
