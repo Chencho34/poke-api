@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { usePokemon } from '../hooks'
-import Spinner from '../components/Spinner'
+import { Spinner } from '../components'
+
 export default function Pokemon() {
   const { id } = useParams()
   const { pokemon, loading } = usePokemon(id)

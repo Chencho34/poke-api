@@ -1,7 +1,7 @@
 import { MdOutlineLightMode, MdOutlineNightlight } from 'react-icons/md'
 import { RiCloseLine, RiMenu3Line } from 'react-icons/ri'
 
-export default function NavMenu({ handleToggleMenu, toggleNavMenu, handleToggleThemeColor, toggleThemeColor }) {
+export default function NavToggleMenu ({ handleToggleMenu, toggleNavMenu, handleToggleThemeColor, toggleThemeColor }) {
   return (
     <section className='flex flex-row gap-3 mx-1.5'>
       <section className='lg:hidden w-full'>

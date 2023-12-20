@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { Pokedex, Pokemon } from './pages'
-import { Nav } from './components'
 import './App.css'
+import { Nav } from './components'
 
 export default function App() {
   return (

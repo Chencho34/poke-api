@@ -1,11 +1,11 @@
-import ButtonsGroup from './ButtonsGroup'
-import Nav from './navBar/Nav'
-import Spinner from './Spinner'
+import ButtonsGroup from './Pagination/ButtonsGroup'
+import Spinner from './Spinner/Spinner'
 import Card from './Card/Card'
+import Nav from './Nav/Nav'
 
 export {
   ButtonsGroup,
-  Nav,
+  Spinner,
   Card,
-  Spinner
+  Nav,
 }

@@ -1,7 +1,7 @@
 import { MdOutlineNightlight } from 'react-icons/md'
 import { RiSearchLine } from 'react-icons/ri'
 
-export default function NavMenuMobile({ toggleNavMenu }) {
+export default function NavMobileMenu ({ toggleNavMenu }) {
   return (
     <>
       { toggleNavMenu && 

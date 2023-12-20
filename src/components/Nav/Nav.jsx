@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useToggleNavBtn } from '../../hooks/useToggleNavBtns'
-import { NavItems, NavMenu, NavMenuMobile, NavSearch } from '../navBar'
+import { NavItems, NavMobileMenu, NavSearch, NavToggleMenu } from './'
 
 export default function Nav () {
   const { toggleNavMenu, toggleThemeColor, handleToggleMenu, handleToggleThemeColor } = useToggleNavBtn()
@@ -16,11 +16,11 @@ export default function Nav () {
           <article className='flex items-center w-auto gap-1 bg-transparent rounded-lg px-1 '>
             <NavItems />
             <NavSearch />
-            <NavMenu handleToggleMenu={handleToggleMenu} handleToggleThemeColor={handleToggleThemeColor} toggleNavMenu={toggleNavMenu} toggleThemeColor={toggleThemeColor} />
+            <NavToggleMenu handleToggleMenu={handleToggleMenu} handleToggleThemeColor={handleToggleThemeColor} toggleNavMenu={toggleNavMenu} toggleThemeColor={toggleThemeColor} />
           </article>
         </section>
       </nav>
-      <NavMenuMobile toggleNavMenu={toggleNavMenu} />
+      <NavMobileMenu toggleNavMenu={toggleNavMenu} />
     </> 
   )
 }
