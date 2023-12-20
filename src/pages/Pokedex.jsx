@@ -1,4 +1,4 @@
-import { ButtonsGroup, PokemonCards } from '../components'
+import { ButtonsGroup, Card } from '../components'
 import { usePagination, usePokemons } from '../hooks'
 
 export default function Pokedex () {
@@ -12,7 +12,7 @@ export default function Pokedex () {
         <div className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 pt-7 pb-11'>
           { 
             pokemons.map(({ name, image, type, id }) => (
-              <PokemonCards
+              <Card
                 key={name}
                 name={name}
                 image={image}

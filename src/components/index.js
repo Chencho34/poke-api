@@ -1,11 +1,11 @@
 import ButtonsGroup from './ButtonsGroup'
 import Nav from './navBar/Nav'
-import PokemonCards from './Card/Card'
 import Spinner from './Spinner'
+import Card from './Card/Card'
 
 export {
   ButtonsGroup,
   Nav,
-  PokemonCards,
+  Card,
   Spinner
 }
