@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useToggleNavBtn } from '../../hooks/useToggleNavBtns'
+import { useToggleNavBtn } from '../../hooks'
 import { NavItems, NavMobileMenu, NavSearch, NavToggleMenu } from './'
 
 export default function Nav () {
