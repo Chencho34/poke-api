@@ -21,6 +21,7 @@ export default function Nav () {
         </section>
       </nav>
       <NavMobileMenu toggleNavMenu={toggleNavMenu} />
+      {/* <NavSearch></NavSearch> */}
     </> 
   )
 }
@@ -69,17 +70,17 @@ export default function Nav () {
 //       </label>
 //     </form>
 //     {isInputFocused && inputSearch.length > 0 && (
-//         <div className='fixed grid-cols-1 grid place-content-start place-items-center justify-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  grid-rows-none gap-5 top-16 right-0 w-full mx-auto bg-gradient-to-r from-gray-900 to-gray-700/80 bg-transparent backdrop-blur-lg text-white p-7 h-screen overflow-hidden overflow-y-auto'>
-//           {inputSearch.map(({ id, name, image }) => (
-//             <Card 
-//               key={id}
-//               image={image}
-//               name={name}
-//               id={id}
-//               to={id}
-//             />
-//           ))}
-//         </div>
+      // <div className='fixed grid-cols-1 grid place-content-start place-items-center justify-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  grid-rows-none gap-5 top-16 right-0 w-full mx-auto bg-gradient-to-r from-gray-900 to-gray-700/80 bg-transparent backdrop-blur-lg text-white p-7 h-screen overflow-hidden overflow-y-auto'>
+      //   {inputSearch.map(({ id, name, image }) => (
+      //     <Card 
+      //       key={id}
+      //       image={image}
+      //       name={name}
+      //       id={id}
+      //       to={id}
+      //     />
+      //   ))}
+      // </div>
 //       )}  
 //     </>
 //   )

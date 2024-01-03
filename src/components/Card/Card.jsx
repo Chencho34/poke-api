@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Card({ name, image, type, to }) {
   return (
     <Link to={`/pokemon:${to}`}>
-      <section className={`flex flex-row items-center justify-around space-y-4 p-6 rounded border shadow-sm hover:shadow-md ${type} z-0 backdrop-blur-md`}>
+      <section className={'flex flex-row items-center justify-around space-y-4 p-6 rounded border shadow-sm hover:shadow-md  z-0 backdrop-blur-md'}>
         <article className='h-20 w-20 shrink-0 overflow-hidden rounded-full'>
           <figure className='flex items-center justify-center h-full w-full rounded-full'>
             <img src={image} alt='image'/>
