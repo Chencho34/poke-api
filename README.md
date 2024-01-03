@@ -1,8 +1,39 @@
-# React + Vite
+# PokeAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto consiste en el desarrollo de una PokeAPI utilizando React y Vite como entorno de desarrollo.
 
-Currently, two official plugins are available:
+## Librerias implementadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. `Tailwind CSS` 
+1. `React Router Dom` 
+1. `React Icons` 
+
+## Linter
+
+1. `Eslint`
+
+## Implementaciones necesarias:
+
+* revisar y actualizar codigo
+  * hooks
+  * api
+
+* navBar
+  * responsive
+  * solucionar los botones
+  * hacer funcional el input search
+
+* instalar react-router-dom
+  * establecer las rutas
+    * Pikedex page
+    * NotFound page
+
+## Implementaciones futuras:
+
+* 
+
+## Instalacion:
+
+## Conclusión
+
+El desarrollo de una PokeAPI en React con Vite es una excelente opción para aquellos que buscan aprender sobre React y la API de Pokémon. Al implementar componentes modulares y reutilizables, este proyecto proporciona una base sólida para la creación de aplicaciones web más grandes y complejas.
